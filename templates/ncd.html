@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCD RISK ASSESSMENT</title>
+    <!-- <style>
+        #ncd {
+        text-align: center;
+        color: red;
+        font-size: 40px;
+        }
+
+
+        .div{
+            
+        }
+    </style> -->
+    <link rel="stylesheet" href="C:\Users\aman.kumar\Documents\assignment\static\ncd.css">
+</head>
+
+<body>
+    <header id="ncd"> NCD RISK ASSESSMENT</header>
+
+
+
+
+    <div class="flexContainer">
+
+        <div>
+            <img src="static\ncd1.png" alt="Girl in a jacket">
+        </div>
+        <div class="box">
+            <form action="/result" method=post>
+                <label >AGE</label>
+                <div>
+                    <input type="number" name="age">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <label >SMOKE</label>
+                <div>
+                    <input type="text" name="smoke">
+                </div>
+                <br>
+                
+                <label >ALCOHOL</label>
+                <div>
+                 
+                    <input type="text" name="alcohol">
+                </div>
+                <br>
+                
+                <div>
+                    <label>GENDER</label>
+                    Male<input type="radio" name="male"> FeMale<input type="radio" name="female">
+                </div>
+                <br>
+                <label>MEASUREMENT</label>
+                <div>
+                    
+                    <input type="number" name="measurement">
+                </div>
+                <br>
+                
+                <label >PHYSICAL</label>
+                <div>
+                    <input type="number" name="physical">
+                </div>
+                <br>
+                
+                
+                <div>
+                    <!-- Number of subjects: <input type="number"> -->
+                    FAMILY_DISEASE_HISTORY: <input type="text" name="fam">
+                </div>
+                <br>
+                <!-- <div>
+                        Date: <input type="date" name="date">
+                    </div>
+                   
+                    <div>
+                        About your self: <textarea name="mytext"  cols="30" rows="10"></textarea>        </div>
+                   
+                    
+                   
+                    <div>
+                        <select name="Mycar" id="car">
+                            <option value="swift">swift</option>
+                            <option value="bmw">bmw</option>
+                        </select>
+                    </div> -->
+                    <br>
+                <div>
+                    <input type="submit" value="submit">
+                    <input type="reset" value="reset">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <b hidden>{{y}}</b>
+    
+</body>
+
+</html>
