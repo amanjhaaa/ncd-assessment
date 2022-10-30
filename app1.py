@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request
 from flask_mysqldb import MySQL
+from random import randint
 
 
 # import json
@@ -23,6 +24,7 @@ alcohol = ""
 measurement = ""
 physical = ""
 disease_family_hist = ""
+patient_id = " "
 
 @app.route("/" , methods = ['GET','POST'])
 def home():
@@ -31,6 +33,7 @@ def home():
 # route to get data from html form and insert data into database
 @app.route('/registration', methods=["GET", "POST"])
 def registration():
+    global patient_id
     global firstname
     middlename = " "
     lastname = " "
@@ -38,6 +41,9 @@ def registration():
     gender = " "
     birthday = " "
     pincode = " "
+
+    patient_id = randint(10000000000000,99999999999999)
+
     if request.method == "POST":
     
         firstname = request.form['fname']
@@ -52,11 +58,11 @@ def registration():
 
         cursor = mysql.connection.cursor()
 
-        cursor.execute(''' INSERT INTO patient_info VALUES(NULL ,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)''',(firstname,middlename,lastname,email,gender,birthday,pincode,age,smoke,alcohol,measurement,physical,disease_family_hist,add,result))
+        cursor.execute(''' INSERT INTO patient_info VALUES(%s ,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)''',(patient_id,firstname,middlename,lastname,email,gender,birthday,pincode,age,smoke,alcohol,measurement,physical,disease_family_hist,add,result))
         mysql.connection.commit()
         
    
-    return render_template("ncd1.html",fname = firstname,mname= middlename,lname =  lastname,email1 = email,gender1 = gender,birthday1 = birthday,pincode1 = pincode)
+    return render_template("ncd1.html",patientid = patient_id , fname = firstname,mname= middlename,lname =  lastname,email1 = email,gender1 = gender,birthday1 = birthday,pincode1 = pincode)
 
 
 @app.route('/res',methods=['GET',"POST"])
